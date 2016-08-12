@@ -1,0 +1,70 @@
+const int pinData = 2; // Serial Data - 14
+const int pinLatch = 3; //STcp-Storage register clock - 12
+const int pinClock = 4; //SHcp - Shift register - 11
+void setup()
+{
+pinMode (pinLatch, OUTPUT);
+pinMode (pinClock, OUTPUT);
+pinMode (pinData, OUTPUT);
+}
+void loop()
+{
+digitalWrite(pinLatch, LOW);
+shiftOut(pinData, pinClock, MSBFIRST, 255);
+digitalWrite (pinLatch, HIGH);
+delay (1000);
+}
+================
+const int pinData = 2; // Serial Data - 14
+const int pinLatch = 3; //STcp-Storage register clock - 12
+const int pinClock = 4; //SHcp - Shift register - 11
+void setup()
+{
+pinMode (pinLatch, OUTPUT);
+pinMode (pinClock, OUTPUT);
+pinMode (pinData, OUTPUT);
+}
+void loop()
+{
+digitalWrite(pinLatch, LOW);
+shiftOut(pinData, pinClock, MSBFIRST, 1);
+digitalWrite (pinLatch, HIGH);
+delay (1000);
+}
+==========================
+const int pinData = 2; // Serial Data - 14
+const int pinLatch = 3; //STcp-Storage register clock - 12
+const int pinClock = 4; //SHcp - Shift register - 11
+void setup()
+{
+pinMode (pinLatch, OUTPUT);
+pinMode (pinClock, OUTPUT);
+pinMode (pinData, OUTPUT);
+}
+void loop()
+{
+digitalWrite(pinLatch, LOW);
+shiftOut(pinData, pinClock, LSBFIRST, 1);
+digitalWrite (pinLatch, HIGH);
+delay (1000);
+}
+=====iteration=====
+const int pinLatch = 3; //STcp - Storage register clock input 12
+const int pinClock = 4; //SHcp - Shift register clock input 11
+const int pinData = 2; // Serial Data input 14
+void setup()
+{
+pinMode (pinLatch, OUTPUT);
+pinMode (pinClock, OUTPUT);
+pinMode (pinData, OUTPUT);
+}
+void loop()
+{
+for(int i = 0; i < 256; i++)
+{
+digitalWrite(pinLatch, LOW);
+shiftOut(pinData, pinClock, MSBFIRST, i );
+digitalWrite (pinLatch, HIGH);
+delay (100);
+}
+}
